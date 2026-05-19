@@ -40,5 +40,5 @@ spec:
       targetPort: 3000
       nodePort: 30080
 
-  type: clusterIP
+  type: ClusterIP
   #clusterIP: 
