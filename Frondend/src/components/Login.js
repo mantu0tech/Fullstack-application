@@ -19,11 +19,13 @@ export default function Login() {
     .then(resp => {
       console.log("SERVER RESPONSE:",resp);
       if(resp.status==401){
-        setLoginError("please provide correct details to login");        
+        setLoginError("please provide correct details to login");
+        return; // Don't proceed to parse JSON
       }
       return resp.json();      
     })
     .then(data => {
+      if (!data) return; // If we returned early, data is undefined
       console.log("server data:",data); 
       if(data.jwtToken){
         const token = data.jwtToken;
@@ -44,6 +46,10 @@ export default function Login() {
         window.location.href="/";
       }     
     })
+    .catch(error => {
+      console.error("Login error:", error);
+      setLoginError("An error occurred during login");
+    });
   }
 
 
