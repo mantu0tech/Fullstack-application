@@ -102,7 +102,8 @@ type: ClusterIP
 
 Access application using port forwarding:
 
-kubectl port-forward svc/frontend 3000:3000 -n clickncart
+kubectl port-forward svc/frontend 3000:3000 --address=0.0.0.0 -n clickncart &
+
 
 Access:
 
