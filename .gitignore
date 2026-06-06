@@ -32,9 +32,13 @@ build/
 
 ### VS Code ###
 .vscode/
+# Terraform inside subfolder
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
 
-*/*.terraform
-terraform.tfstate
-terraform.tfstate.backup
+
+
 
 
